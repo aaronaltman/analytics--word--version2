@@ -1,3 +1,8 @@
 export default function Footer() {
-  return <footer>Footer</footer>;
+  return (
+    <footer>
+      <small>&copy; Copyright AKA All Rights Reserved</small>
+      <small>Last Checked time</small>
+    </footer>
+  );
 }
