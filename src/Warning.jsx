@@ -1,3 +1,3 @@
-export default function Warning() {
-  return <p className="warning">Warning script tag not allowed</p>;
+export default function Warning(props) {
+  return <p className="warning">{props.warningText}</p>;
 }

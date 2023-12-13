@@ -1,15 +1,24 @@
 import { useState } from "react";
 import Warning from "./Warning";
+
 export default function TextArea() {
   const [text, setText] = useState("");
+  const [showWarning, setShowWarning] = useState(false);
+  const [warningText, setWarningText] = useState("");
 
   const handleChange = (e) => {
-    const newText = e.target.value;
-    setText(newText);
+    let newText = e.target.value;
+
     if (newText.includes("<script>")) {
-      alert("No script tag allowed");
-      setText("");
+      setWarningText("No scripts allowed!");
+      newText = newText.replace("<script>", "");
+      setShowWarning(true);
+    } else if (newText.includes("@")) {
+      setWarningText("No emails allowed!");
+      newText = newText.replace("@", "");
+      setShowWarning(true);
     }
+    setText(newText);
   };
 
   return (
@@ -20,7 +29,7 @@ export default function TextArea() {
         placeholder="Enter your text here"
         spellCheck="false"
       />
-      <Warning />
+      {showWarning ? <Warning warningText={warningText} /> : null}
     </div>
   );
 }
