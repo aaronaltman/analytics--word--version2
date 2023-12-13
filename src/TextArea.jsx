@@ -3,7 +3,6 @@ import Warning from "./Warning";
 
 export default function TextArea() {
   const [text, setText] = useState("");
-  const [showWarning, setShowWarning] = useState(false);
   const [warningText, setWarningText] = useState("");
 
   const handleChange = (e) => {
@@ -12,11 +11,11 @@ export default function TextArea() {
     if (newText.includes("<script>")) {
       setWarningText("No scripts allowed!");
       newText = newText.replace("<script>", "");
-      setShowWarning(true);
     } else if (newText.includes("@")) {
       setWarningText("No emails allowed!");
       newText = newText.replace("@", "");
-      setShowWarning(true);
+    } else {
+      setWarningText("");
     }
     setText(newText);
   };
@@ -29,7 +28,7 @@ export default function TextArea() {
         placeholder="Enter your text here"
         spellCheck="false"
       />
-      {showWarning ? <Warning warningText={warningText} /> : null}
+      {<Warning warningText={warningText} />}
     </div>
   );
 }

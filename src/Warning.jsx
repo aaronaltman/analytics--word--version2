@@ -1,3 +1,3 @@
-export default function Warning(props) {
-  return <p className="warning">{props.warningText}</p>;
+export default function Warning({ warningText }) {
+  return <p className="warning">{warningText}</p>;
 }
