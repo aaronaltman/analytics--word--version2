@@ -1,7 +1,7 @@
 import TextArea from "./TextArea";
 import Stats from "./Stats";
 import { useState } from "react";
-import { FACEBOOK_MAX, IG_MAX } from "./Constants";
+import { FACEBOOK_MAX, IG_MAX } from "../Constants";
 
 export default function Container() {
   const [text, setText] = useState("");
