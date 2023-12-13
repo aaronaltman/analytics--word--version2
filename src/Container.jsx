@@ -4,15 +4,12 @@ import { useState } from "react";
 
 export default function Container() {
   const [text, setText] = useState("");
-  const numberOfCharacters = text.length;
-  const numberOfWords = text.split(/\s+/).filter((word) => word !== "").length;
-  const instagram = 280 - numberOfCharacters;
-  const facebook = 2200 - numberOfCharacters;
+
   const stats = {
-    numberOfCharacters: numberOfCharacters,
-    numberOfWords: numberOfWords,
-    instagram: instagram,
-    facebook: facebook,
+    numberOfCharacters: text.length,
+    numberOfWords: text.split(/\s+/).filter((word) => word !== "").length,
+    instagram: 280 - text.length,
+    facebook: 2200 - text.length,
   };
 
   return (
